@@ -72,6 +72,16 @@ p{margin:0}
 .trust-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 0;color:#354b65;font-size:.9rem;font-weight:600}
 .trust-item{display:flex;align-items:center;gap:10px}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--blue)}
+.about{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:center}
+.about-panel{background:linear-gradient(180deg,#f7f9ff,#eef4ff);border:1px solid var(--line);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow)}
+.about-panel h3{margin-bottom:12px}
+.about-panel p{color:var(--muted);font-size:1rem}
+.about-badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.badge{display:inline-flex;align-items:center;height:34px;padding:0 12px;border-radius:999px;background:#fff;border:1px solid var(--line);color:#304159;font-size:.8rem;font-weight:700}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:24px}
+.stat{padding:20px 18px;border-radius:14px;background:#fff;border:1px solid var(--line)}
+.stat strong{display:block;font-size:1.75rem;letter-spacing:-.05em;color:var(--ink)}
+.stat span{display:block;color:var(--muted);font-size:.82rem;margin-top:4px}
 .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:42px}
 .card{padding:28px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;box-shadow:var(--shadow)}
 .card-icon{width:44px;height:44px;display:grid;place-items:center;background:#eaf2ff;color:var(--blue);border-radius:12px;font-size:1.25rem;font-weight:700;margin-bottom:20px}
@@ -121,9 +131,9 @@ p{margin:0}
 .legal{font-size:.8rem;color:#a7bad3;margin-top:18px}
 .skip-link{position:absolute;left:-9999px;top:8px;background:white;color:var(--ink);padding:10px;z-index:99}
 .skip-link:focus{left:10px}
-@media(max-width:980px){:root{--header-height:72px}.header-inner{gap:14px}.nav-shell{gap:12px}.nav{gap:3px}.nav a{font-size:.84rem;padding:9px 10px}.nav .nav-cta{padding:10px 13px}.two-col{gap:44px}.contact-layout{gap:38px}}
+@media(max-width:980px){:root{--header-height:72px}.header-inner{gap:14px}.nav-shell{gap:12px}.nav{gap:3px}.nav a{font-size:.84rem;padding:9px 10px}.nav .nav-cta{padding:10px 13px}.about,.two-col,.contact-layout{grid-template-columns:1fr;gap:28px}.stats{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:760px){.header-inner{min-height:70px;position:relative}.menu-toggle{display:flex;margin-left:auto}.nav-shell{display:contents}.nav{display:none;position:absolute;top:calc(100% - 1px);left:-18px;right:-18px;width:auto;padding:12px 18px 18px;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 16px 24px rgba(7,26,49,.1);align-items:stretch;gap:4px}.nav.is-open{display:flex;flex-direction:column}.nav a{padding:12px 14px;font-size:.96rem}.nav .nav-cta{margin-top:6px;text-align:center}.header.menu-open{background:#fff}}
-@media(max-width:680px){.wrap{width:min(100% - 36px,560px)}.hero{padding:76px 0 72px}.hero h1{font-size:clamp(2.35rem,11vw,3.8rem)}.hero-copy{font-size:1rem}.section{padding:68px 0}.trust-inner{justify-content:flex-start;flex-wrap:wrap;gap:12px 22px}.cards,.two-col,.process,.process-extra,.contact-layout{grid-template-columns:1fr}.cards{gap:14px}.card{padding:24px}.two-col{gap:20px}.process{gap:26px}.process-extra{gap:22px}.outcomes{grid-template-columns:1fr}.callout{align-items:flex-start;flex-direction:column;padding:28px}.contact-layout{gap:32px}.footer-inner{align-items:flex-start;flex-direction:column}.footer-links{flex-wrap:wrap}}
+@media(max-width:680px){.wrap{width:min(100% - 36px,560px)}.hero{padding:76px 0 72px}.hero h1{font-size:clamp(2.35rem,11vw,3.8rem)}.hero-copy{font-size:1rem}.section{padding:68px 0}.trust-inner{justify-content:flex-start;flex-wrap:wrap;gap:12px 22px}.cards,.stats,.process,.process-extra,.contact-layout{grid-template-columns:1fr}.cards{gap:14px}.card{padding:24px}.two-col{gap:20px}.process{gap:26px}.process-extra{gap:22px}.outcomes{grid-template-columns:1fr}.callout{align-items:flex-start;flex-direction:column;padding:28px}.contact-layout{gap:32px}.footer-inner{align-items:flex-start;flex-direction:column}.footer-links{flex-wrap:wrap}.about-panel{padding:22px}.stats{gap:12px}} 
 @media(max-width:420px){.brand-mark{width:40px;height:40px}.brand-name{font-size:1.08rem}.hero .actions,.contact .actions{align-items:stretch;flex-direction:column}.button{width:100%}.trust-item{font-size:.82rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}.button:hover{transform:none}}
 </style>
@@ -136,7 +146,7 @@ p{margin:0}
 <header class="header"><div class="wrap header-inner">
 <a class="brand" href="#inizio" aria-label="Highwalls Sec, homepage"><span class="brand-mark" aria-hidden="true">HS</span><span class="brand-name">Highwalls Sec<small>CYBERSECURITY CONSULTING</small></span></a>
 <button class="menu-toggle" type="button" aria-label="Apri il menu" aria-expanded="false" aria-controls="primary-nav"><span class="menu-toggle-icon" aria-hidden="true"></span></button>
-<div class="nav-shell"><nav class="nav" id="primary-nav" aria-label="Navigazione principale"><a href="#servizi">Servizi</a><a href="#metodo">Metodo</a><a href="#benefici">Benefici</a><a href="#faq">FAQ</a><a class="nav-cta" href="https://ig.me/m/highwalls.cybersec" target="_blank" rel="noopener noreferrer">Contattaci</a></nav></div>
+<div class="nav-shell"><nav class="nav" id="primary-nav" aria-label="Navigazione principale"><a href="#chi-siamo">Chi siamo</a><a href="#servizi">Servizi</a><a href="#metodo">Metodo</a><a href="#benefici">Benefici</a><a href="#faq">FAQ</a><a class="nav-cta" href="https://ig.me/m/highwalls.cybersec" target="_blank" rel="noopener noreferrer">Contattaci</a></nav></div>
 </div></header>
 <main id="contenuto">
 <section class="hero" id="inizio"><div class="wrap hero-content">
@@ -147,6 +157,20 @@ p{margin:0}
 <p class="hero-note">Un approccio concreto, proporzionato agli obiettivi, ai rischi e alle risorse disponibili.</p>
 </div></section>
 <div class="trust-strip"><div class="wrap trust-inner"><span class="trust-item"><span class="dot"></span>Analisi e priorità chiare</span><span class="trust-item"><span class="dot"></span>Consulenza e supporto tecnico</span><span class="trust-item"><span class="dot"></span>Percorso sostenibile per la PMI</span></div></div>
+<section class="section" id="chi-siamo"><div class="wrap"><span class="eyebrow">Chi siamo</span><h2 style="margin-top:15px">Cybersecurity concreta, fatta per aziende che devono muoversi con criterio.</h2><div class="about" style="margin-top:36px">
+<div class="about-panel">
+<h3>Highwalls Sec nasce per aiutare le PMI a gestire il rischio in modo realistico.</h3>
+<p>Non lavori sul “tutto e subito”. Lavora su ciò che ha impatto reale: vulnerabilità, processi, responsabilità, documentazione e interventi efficaci. L’obiettivo è costruire una sicurezza che supporti l’azienda, non la blocchi.</p>
+<div class="about-badges"><span class="badge">PMI</span><span class="badge">Analisi</span><span class="badge">Roadmap</span><span class="badge">Hardening</span></div>
+</div>
+<div>
+<div class="stats">
+<div class="stat"><strong>01</strong><span>Valutazione iniziale</span></div>
+<div class="stat"><strong>02</strong><span>Gap analysis</span></div>
+<div class="stat"><strong>03</strong><span>Roadmap prioritaria</span></div>
+</div>
+<p class="section-intro">Il lavoro parte da una lettura reale della situazione aziendale: sistemi, processi, livelli di maturità, criticità e priorità. Da lì si costruisce un percorso chiaro, scalabile e sostenibile per il business.</p>
+</div></div></section>
 <section class="section" id="servizi"><div class="wrap"><span class="eyebrow">Un percorso integrato</span><h2 style="margin-top:15px">Consulenza e messa in sicurezza, insieme.</h2><p class="section-intro">Non ci limitiamo a indicare cosa non va: aiutiamo a decidere cosa fare e affianchiamo il team anche nell’attuazione degli interventi.</p>
 <div class="cards">
 <article class="card"><div class="card-icon" aria-hidden="true">◎</div><h3>Consulenza di sicurezza</h3><p>Analizziamo lo stato di sicurezza, identifichiamo le criticità e definiamo priorità e roadmap. Supportiamo le decisioni, i progetti e il percorso di certificazione.</p></article>
